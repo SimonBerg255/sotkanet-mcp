@@ -2,7 +2,6 @@ import os
 
 from dotenv import load_dotenv
 from fastmcp import FastMCP
-from fastmcp.server.auth.providers.jwt import JWTVerifier
 from mcp.server.fastmcp import Icon
 from starlette.middleware import Middleware
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -26,17 +25,6 @@ from tools_sotkanet import (
     get_indicator_data,
     compare_regions,
     get_trend,
-)
-
-
-####### API KEY #######
-
-# HMAC symmetric key verification — set MCP_SERVER_JWT_SECRET in .env
-verifier = JWTVerifier(
-    public_key=os.getenv("MCP_SERVER_JWT_SECRET"),  # Shared secret (min 32 chars)
-    issuer=os.getenv("MCP_SERVER_JWT_ISSUER", ""),
-    audience=os.getenv("MCP_SERVER_JWT_AUDIENCE", ""),
-    algorithm="HS256",
 )
 
 
@@ -133,7 +121,6 @@ mcp = FastMCP(
     version=VERSION,
     website_url=WEBSITE_URL,
     icons=[icon],
-    auth=verifier,
 )
 
 
