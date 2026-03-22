@@ -54,7 +54,7 @@ middleware = [Middleware(IPAllowlistMiddleware, allowed_ips=ALLOWED_IPS)]
 
 ####### SERVER METADATA #######
 
-icon = Icon(src="https://sotkanet.fi/favicon.ico")
+icon = Icon(src="https://raw.githubusercontent.com/SimonBerg255/sotkanet-mcp/main/sotkanet.png")
 
 INSTRUCTION_STRING = """
 You are connected to Sotkanet — Finland's national statistics and indicator bank for
